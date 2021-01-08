@@ -19,7 +19,7 @@ const data = {
 
   products: [
     {
-      _id: '1',
+
       name: 'Puma Mens 12',
       category: 'Shoes',
       image: '/images/p1.jpg',
@@ -31,7 +31,7 @@ const data = {
       countInStock: 4,
     },
     {
-      _id: '2',
+
       name: 'Fila Mens 8',
       category: 'Shoes',
       image: '/images/p2.jpg',
@@ -43,7 +43,7 @@ const data = {
       countInStock: 0,
     },
     {
-      _id: '3',
+
       name: 'Northern Small',
       category: 'Shoes',
       image: '/images/p3.jpg',
@@ -55,7 +55,7 @@ const data = {
       countInStock: 9,
     },
     {
-      _id: '4',
+
       name: 'Under Armour 9',
       category: 'Shoes',
       image: '/images/p4.jpg',
@@ -67,7 +67,7 @@ const data = {
       countInStock: 0,
     },
     {
-      _id: '5',
+
       name: 'Puma Girls 10',
       category: 'Shoes',
       image: '/images/p5.jpg',
@@ -79,7 +79,7 @@ const data = {
       countInStock: 2,
     },
     {
-      _id: '6',
+
       name: 'Fila Girls 8',
       category: 'Shoes',
       image: '/images/p6.jpg',
