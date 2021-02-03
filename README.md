@@ -1,1 +1,1 @@
-# Amazona
+Currenly working on creating an app like Amazon using react.js (frontend), node.js (backend), express.js and mongoDB for storing data. So far, user can login in through authentication, add item to cart, proceed to checkout. You need to download node to your machine, and mongoDB, then first go to backend forlder and type the commond npm start, it will set up the backend for the project. And then go to the frontend folder, and type np start again - it will start the front end and then go to localhost:5000.
