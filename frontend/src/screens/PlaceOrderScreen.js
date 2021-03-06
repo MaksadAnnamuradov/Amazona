@@ -17,7 +17,7 @@ export default function PlaceOrderScreen(props) {
   );
   
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.taxPrice = toPrice(0.10 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const placeOrderHandler = () => {
     // TODO: dispatch place order action
@@ -55,16 +55,18 @@ export default function PlaceOrderScreen(props) {
                     <li key={item.product}>
                       <div className="row">
                         <div>
+                        <Link to={`/product/${item.product}`}>
                           <img
                             src={item.image}
                             alt={item.name}
                             className="small"
                           ></img>
+                          </Link>
                         </div>
                         <div className="min-30">
-                          <Link to={`/product/${item.product}`}>
+                          
                             {item.name}
-                          </Link>
+                          
                         </div>
 
                         <div>
