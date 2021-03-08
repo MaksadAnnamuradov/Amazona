@@ -22,6 +22,8 @@ export default function Product(props) {
     const addToCartHandler = () => {
         props.history.push(`/cart/${productId}?qty=${qty}`);
     };
+
+    
     return (
 
         <div>
@@ -32,7 +34,9 @@ export default function Product(props) {
                             <Link to="/">Back to result</Link>
                             <div className="row top">
                                 <div className="col-2">
-                                    <img className="large" src={product.image} alt={product.name}></img>
+                                    <div className="image">
+                                        <img className="large" src={product.image} alt={product.name}></img>
+                                    </div>
                                 </div>
                                 <div className="col-1">
                                     <ul>

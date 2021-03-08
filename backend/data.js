@@ -90,6 +90,54 @@ const data = {
       description: 'high quality product',
       countInStock: 1,
     },
+    {
+
+      name: 'Nike Boys',
+      category: 'Shoes',
+      image: '/images/p7.jpg',
+      price: 139,
+      brand: 'Nike',
+      rating: 4.5,
+      numReviews: 100,
+      description: 'high quality product',
+      countInStock: 5,
+    },
+    {
+
+      name: 'Nike Curved',
+      category: 'Shoes',
+      image: '/images/p8.jpg',
+      price: 140,
+      brand: 'Nike',
+      rating: 4.9,
+      numReviews: 30,
+      description: 'high quality product',
+      countInStock: 10,
+    },
+    {
+
+      name: 'Addidas',
+      category: 'Shoes',
+      image: '/images/p9.jpg',
+      price: 110,
+      brand: 'Addidas',
+      rating: 4.6,
+      numReviews: 13,
+      description: 'high quality product',
+      countInStock: 4,
+    },
+    {
+
+      name: 'Addidas Girls 8',
+      category: 'Shoes',
+      image: '/images/p10.jpg',
+      price: 75,
+      brand: 'Addidas',
+      rating: 4.5,
+      numReviews: 15,
+      description: 'high quality product',
+      countInStock: 2,
+    },
   ],
 };
 export default data;
