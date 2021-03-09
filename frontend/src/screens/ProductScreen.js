@@ -8,9 +8,13 @@ import Rating from '../components/Rating';
 import { detailsProduct } from '../actions/productActions';
 
 export default function Product(props) {
+
     const dispatch = useDispatch();
+
     const productId = props.match.params.id;
+
     const productDetails = useSelector((state) => state.productDetails);
+
     const { loading, error, product } = productDetails;
 
     const [qty, setQty] = useState(1);
@@ -49,11 +53,16 @@ export default function Product(props) {
                                                 numReviews={product.numReviews}
                                             ></Rating>
                                         </li>
-                                        <li>Price : ${product.price}</li>
+
+                                        <li>
+                                            Price : ${product.price}
+                                        </li>
+
                                         <li>
                                             Description:
-                            <p>{product.description}</p>
+                                                <p>{product.description}</p>
                                         </li>
+
                                     </ul>
                                 </div>
                                 <div className="col-1">
@@ -65,6 +74,7 @@ export default function Product(props) {
                                                     <div className="price">${product.price}</div>
                                                 </div>
                                             </li>
+
                                             <li>
                                                 <div className="row">
                                                     <div>Status:</div>
@@ -90,7 +100,7 @@ export default function Product(props) {
                                                                             (x) => (
                                                                                 <option key={x + 1} value={x + 1}>{x + 1}</option>
                                                                             )
-                                                                        )}
+                                                                    )}
                                                                 </select>
                                                             </div>
                                                         </div>

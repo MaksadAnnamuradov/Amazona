@@ -10,9 +10,13 @@ import { listProducts } from '../actions/productActions';
 export default function HomeScreen() {
 
     const dispatch = useDispatch();
-    const productList = useSelector((state) => state.productList);
-    const { loading, error, products } = productList;
 
+    const productList = useSelector((state) => state.productList); //get the product list from state 
+
+    const { loading, error, products } = productList;
+    
+
+    //Any changes to dispatch then re-render
     useEffect(() => {
         dispatch(listProducts());
     }, [dispatch]);
@@ -22,14 +26,14 @@ export default function HomeScreen() {
             {loading ? (<LoadingBox></LoadingBox>
             ) : error ? (<MessageBox variant="danger">{error}</MessageBox>
             ) : (
-                        <div className="row center">
+                    <div className="row center">
 
-                            {products.map((product) => (
-                                <Product key={product._id} product={product}></Product>
-                            ))}
+                        {products.map((product) => (
+                            <Product key={product._id} product={product}></Product>
+                        ))}
 
-                        </div>
-                    )}
+                    </div>
+                )}
         </div>
 
     );

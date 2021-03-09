@@ -33,7 +33,7 @@ function App() {
       <div className="grid-container">
         <header className="row">
           <div>
-            <Link className="brand" to="/">amazona</Link>
+            <Link className="brand" to="/">AMAZONA</Link>
           </div>
           <div>
             <Link to="/cart">
@@ -62,7 +62,7 @@ function App() {
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/" component={HomeScreen} exact></Route>
+          <Route path="/" component={HomeScreen} exact></Route> 
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
@@ -78,3 +78,5 @@ function App() {
 }
 
 export default App;
+
+//Exact in the HomeScreen means that we start form there

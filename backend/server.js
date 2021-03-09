@@ -20,22 +20,6 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
     useCreateIndex: true,
 });
 
-// app.get('/api/products/:id', (req, res) => {
-//     const product = data.products.find((x) => x._id === req.params.id);
-
-//     if (product) {
-//         res.send(product);
-//     } else {
-//         res.status(404).send({ message: 'Product not found' });
-//     }
-
-// });
-
-
-// app.get('/api/products', (req, res) => {
-//     res.send(data.products);
-// });
-
 app.use('/api/users', userRouter);
 
 app.use('/api/products', productRouter);
@@ -52,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/config/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
-  });
+});
 
 const port = process.env.PORT || 5000;
 

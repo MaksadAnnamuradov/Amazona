@@ -10,6 +10,8 @@ import {
 import { productDetailsReducer, productListReducer } from './reducers/productReducers';
 import { userRegisterReducer, userSigninReducer } from './reducers/userReducer';
 
+
+//Cart needs little work on it because it can not get the items in the cart after user logs out
 const initialState = {
     userSignin: {
         userInfo: localStorage.getItem('userInfo')
@@ -26,6 +28,8 @@ const initialState = {
         paymentMethod: 'PayPal',
     },
 };
+
+
 
 const reducer = combineReducers({
     productList: productListReducer,
@@ -46,3 +50,8 @@ const store = createStore(
 );
 
 export default store;
+
+//Redux Store Tutorial I used
+// https://www.tutorialspoint.com/redux/redux_store.htm
+// https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
+// https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread

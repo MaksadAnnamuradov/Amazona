@@ -6,6 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function RegisterScreen(props) {
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,9 +17,11 @@ export default function RegisterScreen(props) {
     : '/';
 
   const userRegister = useSelector((state) => state.userRegister);
+
   const { userInfo, loading, error } = userRegister;
 
   const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -27,11 +30,15 @@ export default function RegisterScreen(props) {
       dispatch(register(name, email, password));
     }
   };
+
+
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);
     }
   }, [props.history, redirect, userInfo]);
+
+  
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>

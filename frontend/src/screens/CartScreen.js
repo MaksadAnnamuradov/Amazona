@@ -6,11 +6,16 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
+
     const productId = props.match.params.id;
+
+    //Get the quantity from the string url query
     const qty = props.location.search
         ? Number(props.location.search.split('=')[1])
         : 1;
+
     const cart = useSelector((state) => state.cart);
+
     const { cartItems } = cart;
 
     const dispatch = useDispatch();
@@ -44,12 +49,12 @@ export default function CartScreen(props) {
                                 <li key={item.product}>
                                     <div className="row">
                                         <div>
-                                        <Link to={`/product/${item.product}`}>
-                                            <img
-                                                src={item.image}
-                                                alt={item.name}
-                                                className="small"
-                                            ></img>
+                                            <Link to={`/product/${item.product}`}>
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="small"
+                                                ></img>
                                             </Link>
                                         </div>
                                         <div className="min-30">
@@ -69,7 +74,7 @@ export default function CartScreen(props) {
                                                         <option key={x + 1} value={x + 1}>
                                                             {x + 1}
                                                         </option>
-                                                    ))}
+                                                ))}
                                             </select>
                                         </div>
                                         <div>${item.price}</div>
@@ -106,7 +111,7 @@ export default function CartScreen(props) {
                                 disabled={cartItems.length === 0}
                             >
                                 Proceed to Checkout
-              </button>
+                            </button>
                         </li>
                     </ul>
                 </div>

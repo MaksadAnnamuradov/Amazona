@@ -19,6 +19,7 @@ export default function PlaceOrderScreen(props) {
   const { loading, success, error, order } = orderCreate;
 
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
+
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
@@ -29,8 +30,8 @@ export default function PlaceOrderScreen(props) {
 
   
   const dispatch = useDispatch();
+
   const placeOrderHandler = () => {
-    // TODO: dispatch place order action
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
 

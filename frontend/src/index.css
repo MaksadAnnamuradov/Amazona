@@ -39,6 +39,8 @@ footer {
   background-color: #203040;
   color: #ffffff;
 }
+
+
 /* Common */
 h1 {
   font-size: 1.8rem;
@@ -226,6 +228,8 @@ img.large:hover{
 .price {
   font-size: 2rem;
 }
+
+
 /* Rating */
 .rating span {
   color: #f0c040;
