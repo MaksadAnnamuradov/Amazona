@@ -33,6 +33,7 @@ header {
 main {
   grid-area: main;
   padding: 1rem;
+  margin-top: 25px;
 }
 footer {
   grid-area: footer;
@@ -134,8 +135,14 @@ a.brand {
   justify-content: space-between;
   align-items: center;
 }
+
+.navbar {
+  height: 80px;
+}
+
 .row.center {
   justify-content: center;
+  margin-top: 100px;
 }
 
 .row.top{
