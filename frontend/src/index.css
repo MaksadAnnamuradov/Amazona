@@ -41,6 +41,7 @@ footer {
 }
 
 
+
 /* Common */
 h1 {
   font-size: 1.8rem;
@@ -65,7 +66,7 @@ ul{
 }
 
 li{
-  margin: 2rem;
+  margin-top: 1rem;
 }
 
 
@@ -103,6 +104,11 @@ button:hover{
   color: white;
   background-color: rgb(236, 218, 111);
 }
+
+button.small {
+  font-size: 1.2rem;
+}
+
 /* Header */
 header a {
   color: #ffffff;
@@ -203,7 +209,7 @@ img.large:hover{
   height: 500px;
 }
 
-.card:hover{
+.product:hover{
   transform: scale(1.06);
   overflow: hidden;
   
@@ -279,6 +285,23 @@ img.large:hover{
   display: block;
 }
 
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.2rem;
+}
 
 /*Alert*/
 

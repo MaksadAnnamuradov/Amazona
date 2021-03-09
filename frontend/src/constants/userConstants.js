@@ -10,3 +10,4 @@ export const USER_REGISTER_FAIL = 'USER_REGISTER_FAIL';
 
 
 export const USER_SIGNOUT = 'USER_SIGNOUT';
+
