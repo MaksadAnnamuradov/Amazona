@@ -26,10 +26,10 @@ export default function OrderScreen(props) {
 
     useEffect(() => {
         const addPayPalScript = async () => {
-            const { data } = await Axios.get('/api/config/paypal');
+            //const { data } = await Axios.get('/api/config/paypal');
             const script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+            script.src = `https://www.paypal.com/sdk/js?client-id=AaGwgUL4ZkDUvVemakEZE843IsPTTOkV8ld2SSDTJ8gnt_Ev9FYB0fUrCfRBzXLHIJymdpPe5EjvNP3b`;
             script.async = true;
             script.onload = () => {
                 setSdkReady(true);
