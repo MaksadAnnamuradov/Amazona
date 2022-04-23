@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+  dockerapi-dev:
+    driver: bridge #by defult
+    
 services:
   backend:
     env_file:
@@ -8,8 +12,10 @@ services:
       context: ./backend
       dockerfile: ./Dockerfile
     image: "shop/backend"
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
+    networks:
+      - dockerapi-dev
   frontend:
     env_file:
         "./frontend/.env"
@@ -17,7 +23,37 @@ services:
       context: ./frontend
       dockerfile: ./Dockerfile
     image: "shop/frontend"
-    ports:
-      - "80:3000"
+    # ports:
+    #   - "80:3000"
     links:
       - "backend"
+    networks:
+      - dockerapi-dev
+  swag:
+    image: ghcr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - URL=amazona.maksadannamuradov.com
+      #- SUBDOMAINS=admin
+      - VALIDATION=http
+      #- EXTRA_DOMAINS=client.maksadannamuradov.com #, maksadannamuradov.com #optional
+      - STAGING=true
+    volumes:
+      - /swag:/config
+      - ./default.conf:/config/nginx/site-confs/default
+    ports:
+      - 443:443
+      - 80:80
+    depends_on:
+      - backend
+      - frontend
+    networks:
+        - dockerapi-dev
+    restart: unless-stopped
+    extra_hosts:
+        - host.docker.internal:host-gateway
