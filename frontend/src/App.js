@@ -18,6 +18,9 @@ import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
 
 
+import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './screens/ProductListScreen';
+
 //import logo from '../public/images/amazon-logo.png'; // with import
 
 function App() {
@@ -75,6 +78,27 @@ function App() {
           ) : (
             <Link to="/signin">Sign In</Link>
           )}
+          {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
         </div>
         </header>
       <main>
@@ -92,6 +116,10 @@ function App() {
             path="/profile"
             component={ProfileScreen}
         ></PrivateRoute>
+        <AdminRoute
+            path="/productlist"
+            component={ProductListScreen}
+        ></AdminRoute>
       </main>
       <footer className="row center">All right reserved</footer>
       </div>
