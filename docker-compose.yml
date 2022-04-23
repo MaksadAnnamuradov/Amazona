@@ -3,7 +3,7 @@ version: '3'
 networks:
   dockerapi-dev:
     driver: bridge #by defult
-    
+
 services:
   backend:
     env_file:
@@ -23,8 +23,8 @@ services:
       context: ./frontend
       dockerfile: ./Dockerfile
     image: "shop/frontend"
-    # ports:
-    #   - "80:3000"
+    ports:
+      - "80:3000"
     links:
       - "backend"
     networks:
