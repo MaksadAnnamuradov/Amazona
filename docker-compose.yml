@@ -14,8 +14,8 @@ services:
     image: "shop/backend"
     ports:
       - "5000:5000"
-    networks:
-      - dockerapi-dev
+    # networks:
+    #   - dockerapi-dev
   frontend:
     env_file:
         "./frontend/.env"
@@ -24,11 +24,11 @@ services:
       dockerfile: ./Dockerfile
     image: "shop/frontend"
     ports:
-      - "443:3000"
+      - "3000:3000"
     links:
       - "backend"
-    networks:
-      - dockerapi-dev
+    # networks:
+    #   - dockerapi-dev
   # swag:
   #   image: ghcr.io/linuxserver/swag
   #   container_name: swag
