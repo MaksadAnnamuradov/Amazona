@@ -8,7 +8,7 @@ import {
     orderPayReducer,
   } from './reducers/orderReducers';
 
-import { productDetailsReducer, productListReducer, productReviewCreateReducer, productCreateReducer } from './reducers/productReducers';
+import { productDetailsReducer, productListReducer, productReviewCreateReducer, productCreateReducer, productUpdateReducer } from './reducers/productReducers';
 import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducer';
 
 
@@ -46,6 +46,7 @@ const reducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
     productReviewCreate: productReviewCreateReducer,
     productCreate: productCreateReducer,
+    productUpdate: productUpdateReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
