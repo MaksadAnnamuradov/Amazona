@@ -16,6 +16,7 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import ProductEditScreen from './screens/ProductEditScreen';
 
 
 import AdminRoute from './components/AdminRoute';
@@ -42,43 +43,43 @@ function App() {
         <header className="row navbar">
           <div>
             <Link className="brand" to="/">
-                <img
-                  style={{ width: '120px', height: '80px'}}
-                  src={`${process.env.PUBLIC_URL}/images/amazon-icon.png`} 
-                  alt="Amazon-icon"
-                ></img>
+              <img
+                style={{ width: '120px', height: '80px' }}
+                src={`${process.env.PUBLIC_URL}/images/amazon-icon.png`}
+                alt="Amazon-icon"
+              ></img>
             </Link>
           </div>
-        <div>
-          <Link to="/cart">
-            Cart
+          <div>
+            <Link to="/cart">
+              Cart
               {cartItems.length > 0 && (
-              <span className="badge">{cartItems.length}</span>
-            )}
-          </Link>
-          {userInfo ? (
-            <div className="dropdown">
-              <Link to="#">
-                {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
-              </Link>
-              <ul className="dropdown-content">
-                <li>
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
                     <Link to="/profile">User Profile</Link>
-                </li>
-                <li>
-                  <Link to="/orderhistory">Order History</Link>
-                </li>
-                <li>
-                  <Link to="#signout" onClick={signoutHandler}>
-                    Sign Out
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
                     </Link>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <Link to="/signin">Sign In</Link>
-          )}
-          {userInfo && userInfo.isAdmin && (
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
+            {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
                   Admin <i className="fa fa-caret-down"></i>
@@ -99,29 +100,35 @@ function App() {
                 </ul>
               </div>
             )}
-        </div>
+          </div>
         </header>
-      <main>
-        <Route path="/cart/:id?" component={CartScreen}></Route>
-        <Route path="/" component={HomeScreen} exact></Route>
-        <Route path="/signin" component={SigninScreen}></Route>
-        <Route path="/register" component={RegisterScreen}></Route>
-        <Route path="/shipping" component={ShippingAddressScreen}></Route>
-        <Route path="/payment" component={PaymentMethodScreen}></Route>
-        <Route path="/placeorder" component={PlaceOrderScreen}></Route>
-        <Route path="/product/:id" component={ProductScreen} exact></Route>
-        <Route path="/order/:id" component={OrderScreen}></Route>
-        <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-        <PrivateRoute
+        <main>
+          <Route path="/cart/:id?" component={CartScreen}></Route>
+          <Route path="/" component={HomeScreen} exact></Route>
+          <Route path="/signin" component={SigninScreen}></Route>
+          <Route path="/register" component={RegisterScreen}></Route>
+          <Route path="/shipping" component={ShippingAddressScreen}></Route>
+          <Route path="/payment" component={PaymentMethodScreen}></Route>
+          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
+          <Route path="/product/:id" component={ProductScreen} exact></Route>
+          <Route
+            path="/product/:id/edit"
+            component={ProductEditScreen}
+            exact
+          ></Route>
+
+          <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <PrivateRoute
             path="/profile"
             component={ProfileScreen}
-        ></PrivateRoute>
-        <AdminRoute
+          ></PrivateRoute>
+          <AdminRoute
             path="/productlist"
             component={ProductListScreen}
-        ></AdminRoute>
-      </main>
-      <footer className="row center">All right reserved</footer>
+          ></AdminRoute>
+        </main>
+        <footer className="row center">All right reserved</footer>
       </div>
     </BrowserRouter >
   );
